@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - MCDON CIVIL ENGINEERING LTD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap');
+        }
+        
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .seasons-font {
+            font-family: 'The Seasons', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0) !important;
+        }
+        
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .team-member-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-black to-blue-900 text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="Images/logo.png" alt="MCDON Civil Engineering" class="h-10 w-10 rounded-full object-cover">
+                    <span class="seasons-font text-2xl font-bold text-white">MCE</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-orange-400 transition">Home</a>
+                <a href="about.html" class="nav-link text-white hover:text-orange-400 transition">About</a>
+                <a href="services.html" class="nav-link text-white hover:text-orange-400 transition">Services</a>
+                <a href="team.html" class="nav-link text-orange-400 font-semibold">Team</a>
+                <a href="projects.html" class="nav-link text-white hover:text-orange-400 transition">Projects</a>
+                <a href="blog.html" class="nav-link text-white hover:text-orange-400 transition">Blog</a>
+                <a href="contact.html" class="nav-link text-white hover:text-orange-400 transition">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 bottom-0 w-1/2 bg-black bg-opacity-90 z-50 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="#" class="seasons-font text-2xl font-bold text-white">MCE</a>
+                    <button id="close-mobile-menu" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                    <a href="services.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Services</span>
+                    </a>
+                    <a href="team.html" class="flex items-center space-x-3 text-orange-400 text-xl font-semibold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                        <span>Team</span>
+                    </a>
+                    <a href="projects.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 000 2h.5l.5 2H3a1 1 0 000 2h1.5l.5 2H4a1 1 0 000 2h2.5l.5 2H6a1 1 0 000 2h3a1 1 0 000-2H8.5l-.5-2H9a1 1 0 000-2H7.5l-.5-2H8a1 1 0 000-2H6.5l-.5-2H7a1 1 0 000-2H3zm10 0a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Projects</span>
+                    </a>
+                     <a href="blog.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Blog</span>
+                    </a>
+                    <a href="contact.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Team Section -->
+    <section id="team" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 pt-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-4" style="font-family: The Seasons;">Meet Our Team</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Our experienced professionals are dedicated to delivering exceptional results on every project.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md text-center p-4 sm:p-6 mx-auto max-w-sm w-full">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden border-4 border-orange-400">
+                        <img src="Images/founder.png" alt="Nsubunga Mbidded Michael" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 mb-2 leading-tight">Nsubunga Mbidded Michael</h3>
+                    <p class="text-blue-800 font-medium mb-2 text-sm sm:text-base">Founder / CEO</p>
+                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">"Building tomorrow's infrastructure today."</p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md text-center p-4 sm:p-6 mx-auto max-w-sm w-full">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden border-4 border-orange-400">
+                        <img src="Images/chiefengineer.png" alt="Opiyo Morris" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 mb-2 leading-tight">Opiyo Morris</h3>
+                    <p class="text-blue-800 font-medium mb-2 text-sm sm:text-base">Chief Engineer</p>
+                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Bachelor of Science Degree in Civil Engineering<br class="hidden sm:inline">(15 years of experience)</p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md text-center p-4 sm:p-6 mx-auto max-w-sm w-full">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden border-4 border-orange-400">
+                        <img src="Images/projectmanager.png" alt="Ruyonga Joseph" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 mb-2 leading-tight">Ruyonga Joseph</h3>
+                    <p class="text-blue-800 font-medium mb-2 text-sm sm:text-base">Project Manager</p>
+                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Diploma in Construction Building and Civil Engineering<br class="hidden sm:inline">(10 years of experience)</p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md text-center p-4 sm:p-6 mx-auto max-w-sm w-full">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden border-4 border-orange-400">
+                        <img src="Images/siteengineer.png" alt="Ssekanjako Alex" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 mb-2 leading-tight">Ssekanjako Alex</h3>
+                    <p class="text-blue-800 font-medium mb-2 text-sm sm:text-base">Site Engineer</p>
+                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Certificate in Brick Laying and Concrete(BCP)<br class="hidden sm:inline">(12 years of experience)</p>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="team-card bg-white rounded-lg overflow-hidden shadow-md text-center p-4 sm:p-6 mx-auto max-w-sm w-full">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto mb-3 sm:mb-4 rounded-full overflow-hidden border-4 border-orange-400">
+                        <img src="Images/officeadmin.png" alt="Nakimbugwe Hanifah" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 mb-2 leading-tight">Nakimbugwe Hanifah</h3>
+                    <p class="text-blue-800 font-medium mb-2 text-sm sm:text-base">Secretary</p>
+                    <p class="text-gray-600 text-xs sm:text-sm leading-relaxed">Certificate in Office Administration<br class="hidden sm:inline">(5 years of experience)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Values Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-4" style="font-family: The Seasons;">Our Team Values</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">The principles that guide our team and drive our success.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Collaboration</h3>
+                    <p class="text-gray-600">Working together to achieve exceptional results through teamwork and communication.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Innovation</h3>
+                    <p class="text-gray-600">Embracing new technologies and creative solutions to deliver cutting-edge projects.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Excellence</h3>
+                    <p class="text-gray-600">Striving for the highest quality in every aspect of our work and service delivery.</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Integrity</h3>
+                    <p class="text-gray-600">Operating with honesty, transparency, and ethical practices in all our interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm sm:text-base">© 2025 MCDON CIVIL ENGINEERING LTD. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .team-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>

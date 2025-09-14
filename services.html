@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - MCDON CIVIL ENGINEERING LTD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap');
+        }
+        
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .seasons-font {
+            font-family: 'The Seasons', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0) !important;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .building-carousel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .building-item {
+            min-width: 300px;
+            scroll-snap-align: start;
+        }
+        
+        .building-container {
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .building-container::-webkit-scrollbar {
+            display: none;
+        }
+        .benefits-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #000000 100%);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-black to-blue-900 text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="Images/logo.png" alt="MCDON Civil Engineering" class="h-10 w-10 rounded-full object-cover">
+                    <span class="seasons-font text-2xl font-bold text-white">MCE</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-orange-400 transition">Home</a>
+                <a href="about.html" class="nav-link text-white hover:text-orange-400 transition">About</a>
+                <a href="services.html" class="nav-link text-orange-400 font-semibold">Services</a>
+                <a href="team.html" class="nav-link text-white hover:text-orange-400 transition">Team</a>
+                <a href="projects.html" class="nav-link text-white hover:text-orange-400 transition">Projects</a>
+                <a href="blog.html" class="nav-link text-white hover:text-orange-400 transition">Blog</a>
+                <a href="contact.html" class="nav-link text-white hover:text-orange-400 transition">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 bottom-0 w-1/2 bg-black bg-opacity-90 z-50 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="#" class="seasons-font text-2xl font-bold text-white">MCE</a>
+                    <button id="close-mobile-menu" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                    <a href="services.html" class="flex items-center space-x-3 text-orange-400 text-xl font-semibold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Services</span>
+                    </a>
+                    <a href="team.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                        <span>Team</span>
+                    </a>
+                    <a href="projects.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 000 2h.5l.5 2H3a1 1 0 000 2h1.5l.5 2H4a1 1 0 000 2h2.5l.5 2H6a1 1 0 000 2h3a1 1 0 000-2H8.5l-.5-2H9a1 1 0 000-2H7.5l-.5-2H8a1 1 0 000-2H6.5l-.5-2H7a1 1 0 000-2H3zm10 0a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Projects</span>
+                    </a>
+                     <a href="blog.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Blog</span>
+                    </a>
+                    <a href="contact.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="py-12 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 pt-16">
+            <!-- Section Header -->
+            <div class="text-center mb-8 sm:mb-12 md:mb-16">
+                <h2 class="text-5xl sm:text-4xl md:text-5xl font-bold text-black mb-2" style="font-family: The Seasons;" >What We Do</h2>
+                <div class="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-blue-600 to-orange-500 mx-auto mb-4 sm:mb-6"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <!-- Design-Build -->
+                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                     <div class="bg-gradient-to-br from-black to-gray-800 p-4 sm:p-6 text-white relative overflow-hidden">
+                         
+                         <h3 class="seasons-font text-xl sm:text-2xl font-bold mb-2 flex items-center relative z-10">
+                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                             </svg>
+                             Design-Build
+                         </h3>
+                         <p class="text-gray-200 text-xs sm:text-sm relative z-10">Single point of contact solution</p>
+                     </div>
+                    <div class="p-4 sm:p-6">
+                        <p class="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base text-justify">MCDON acts as the single point of contact and manages the architect and engineers on your behalf. Our clients choose this approach because of our ability to develop a cohesive team.</p>
+                        <div class="space-y-2 mb-4 sm:mb-6">
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Avoids unforeseen costs
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Faster construction timeline
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Time saved = money saved
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Construction Management -->
+                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                     <div class="bg-gradient-to-br from-black to-gray-800 p-4 sm:p-6 text-white relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                         <h3 class="seasons-font text-xl sm:text-2xl font-bold mb-2 flex items-center relative z-10">
+                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                             </svg>
+                             Construction Management
+                         </h3>
+                         <p class="text-gray-200 text-xs sm:text-sm relative z-10">Complete oversight & coordination</p>
+                     </div>
+                    <div class="p-4 sm:p-6">
+                        <p class="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base text-justify">MCDON oversees the entire building process on behalf of the client. Our effective construction managers work with architects and engineers during the design phase, offering value-engineering ideas.</p>
+                        <div class="space-y-2 mb-4 sm:mb-6">
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Complete project oversight
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Value-engineering solutions
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Design phase collaboration
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Contracting -->
+                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                     <div class="bg-gradient-to-br from-black to-gray-800 p-4 sm:p-6 text-white relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                         <h3 class="seasons-font text-xl sm:text-2xl font-bold mb-2 flex items-center relative z-10">
+                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                             </svg>
+                             General Contracting
+                         </h3>
+                         <p class="text-gray-200 text-xs sm:text-sm relative z-10">Full-service construction solutions</p>
+                     </div>
+                    <div class="p-4 sm:p-6">
+                        <p class="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base text-justify">Planning on building a new home? MCDON will help you design, have plans drawn up, and get approval from local government. We organize your entire construction job from materials to timeline.</p>
+                         <div class="space-y-2 mb-4 sm:mb-6">
+                             <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                 <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                 </svg>
+                                 Design & planning assistance
+                             </div>
+                             <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                 <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                 </svg>
+                                 Government approval support
+                             </div>
+                             <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                 <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                 </svg>
+                                 Complete project organization
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Home Building/Design -->
+                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                     <div class="bg-gradient-to-br from-black to-gray-800 p-4 sm:p-6 text-white relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                         <h3 class="seasons-font text-xl sm:text-2xl font-bold mb-2 flex items-center relative z-10">
+                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                             </svg>
+                             New Home Building
+                         </h3>
+                         <p class="text-gray-200 text-xs sm:text-sm relative z-10">Custom designed homes</p>
+                     </div>
+                    <div class="p-4 sm:p-6">
+                        <p class="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base text-justify">We design and construct one-of-a-kind homes uniquely designed to fit specific clients. Use architect plans or custom design your new home's floor plan with our professional home designer.</p>
+                        <div class="space-y-2 mb-4 sm:mb-6">
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                One-of-a-kind designs
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Professional home designer
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Custom floor plans
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Renovations/Remodel -->
+                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                     <div class="bg-gradient-to-br from-black to-gray-800 p-4 sm:p-6 text-white relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                         <h3 class="seasons-font text-xl sm:text-2xl font-bold mb-2 flex items-center relative z-10">
+                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                 <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                             </svg>
+                             Renovations
+                         </h3>
+                         <p class="text-gray-200 text-xs sm:text-sm relative z-10">Complete remodels & upgrades</p>
+                     </div>
+                    <div class="p-4 sm:p-6">
+                        <p class="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base text-justify">Complete home remodels and renovations from basements, bathrooms, kitchens to garage additions, room additions, and outdoor living space enhancement using high-quality materials.</p>
+                        <div class="space-y-2 mb-4 sm:mb-6">
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Complete home remodels
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                High-quality materials
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Indoor & outdoor solutions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room Additions -->
+                 <div class="bg-white rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden group">
+                     <div class="bg-gradient-to-br from-black to-gray-800 p-4 sm:p-6 text-white relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                         <h3 class="seasons-font text-xl sm:text-2xl font-bold mb-2 flex items-center relative z-10">
+                             <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 mr-2 sm:mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                 <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                             </svg>
+                             Room Additions
+                         </h3>
+                         <p class="text-gray-200 text-xs sm:text-sm relative z-10">Expand your living space</p>
+                     </div>
+                    <div class="p-4 sm:p-6">
+                        <p class="text-gray-600 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base text-justify">Room additions bring unique extensions to your home - new garages, extended family rooms, spacious master bedrooms, luxurious living rooms, or enlarged kitchens for family gatherings.</p>
+                        <div class="space-y-2 mb-4 sm:mb-6">
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Stress-free construction
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Client-inclusive process
+                            </div>
+                            <div class="flex items-center text-xs sm:text-sm text-gray-600">
+                                <svg class="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Dream remodeling solutions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-12 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-5xl md:text-5xl font-bold text-black mb-4" style="font-family: The Seasons;" >Our Services</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-8"></div>
+                <!-- Enhanced Description with Visual Design -->
+                <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                    <div class="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-lg border border-blue-100 overflow-hidden">
+                        <!-- Background Pattern -->
+                        <div class="absolute inset-0 opacity-5 hidden sm:block">
+                            <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100" height="100" fill="url(#grid)" />
+                            </svg>
+                        </div>
+                        
+                        <!-- Decorative Elements -->
+                        <div class="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full opacity-10 animate-pulse hidden sm:block"></div>
+                        <div class="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-10 animate-pulse hidden sm:block" style="animation-delay: 1s;"></div>
+                        
+                        <!-- Content -->
+                        <div class="relative z-10">
+                            <!-- Quote Icon -->
+                            <div class="flex justify-center mb-4 sm:mb-6">
+                                <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full p-2 sm:p-3 shadow-lg">
+                                    <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Main Text -->
+                            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 font-medium leading-relaxed text-center relative">
+                                <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold">For five years and beyond</span>, we have become 
+                                <span class="relative">
+                                    <span class="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent font-semibold">trusted partners</span>
+                                    <div class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-orange-500 to-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                                </span>
+                                with our clients in understanding the 
+                                <span class="bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent font-semibold">five basic functions of construction management</span> 
+                                and delivering comprehensive building solutions.
+                            </p>
+                            
+                        </div>
+                        
+                        <!-- Bottom Accent Line -->
+                        <div class="absolute bottom-0 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Construction Management Functions -->
+            <div class="mb-12 sm:mb-16 md:mb-20">
+                <h3 class="seasons-font text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 sm:mb-10 md:mb-12 px-4">Construction Management Functions</h3>
+                <!-- Carousel Container -->
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-4 sm:p-6 lg:p-8">
+                        <!-- Carousel Wrapper -->
+                        <div class="carousel-wrapper relative">
+                            <!-- Carousel Track -->
+                            <div id="carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                                <!-- Function 1 -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-blue-600 overflow-hidden h-full">
+                                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">Scope Definition</h4>
+                                            </div>
+                                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Defining and establishing the scope of the construction project with clear objectives and deliverables.</p>
+                                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Function 2 -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-indigo-600 overflow-hidden h-full">
+                                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-indigo-700 transition-colors duration-300">Pre-Construction Planning</h4>
+                                            </div>
+                                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Comprehensive project planning including preparation, scheduling, phasing plans, budgeting, cost-modeling, and subcontractor qualification.</p>
+                                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Function 3 -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-purple-600 overflow-hidden h-full">
+                                        <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-purple-700 transition-colors duration-300">On-Site Execution</h4>
+                                            </div>
+                                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Project execution including scheduling, quality control, safety management, subcontractor management, status reporting and change management.</p>
+                                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Function 4 -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-green-600 overflow-hidden h-full">
+                                        <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-teal-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-green-600 to-teal-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-green-700 transition-colors duration-300">Monitoring & Control</h4>
+                                            </div>
+                                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Continuous monitoring and controlling of the project to ensure quality, timeline, and budget compliance.</p>
+                                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Function 5 -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-orange-600 overflow-hidden h-full">
+                                        <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-orange-600 to-red-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                    </svg>
+                                                </div>
+                                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-orange-700 transition-colors duration-300">Project Closing</h4>
+                                            </div>
+                                            <p class="text-sm sm:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">Closing of the project related to post-construction activities, final inspections, and client handover.</p>
+                                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-600 to-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <button id="prev-btn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl rounded-full p-2 sm:p-3 transition-all duration-300 z-10 group">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 group-hover:text-blue-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button id="next-btn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white shadow-lg hover:shadow-xl rounded-full p-2 sm:p-3 transition-all duration-300 z-10 group">
+                            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-gray-600 group-hover:text-blue-600 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
+
+                        <!-- Dots Indicator -->
+                        <div class="flex justify-center mt-6 space-x-2">
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-blue-600 transition-all duration-300" data-slide="0"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="1"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="2"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="3"></button>
+                            <button class="carousel-dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" data-slide="4"></button>
+                        </div>
+                    </div>
+
+                    <!-- Carousel JavaScript -->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const track = document.getElementById('carousel-track');
+                            const slides = document.querySelectorAll('.carousel-slide');
+                            const prevBtn = document.getElementById('prev-btn');
+                            const nextBtn = document.getElementById('next-btn');
+                            const dots = document.querySelectorAll('.carousel-dot');
+                            
+                            let currentSlide = 0;
+                            let slidesToShow = 1;
+                            
+                            // Determine slides to show based on screen size
+                            function updateSlidesToShow() {
+                                if (window.innerWidth >= 1024) {
+                                    slidesToShow = 3;
+                                } else if (window.innerWidth >= 640) {
+                                    slidesToShow = 2;
+                                } else {
+                                    slidesToShow = 1;
+                                }
+                                
+                                // Update slide widths dynamically
+                                slides.forEach(slide => {
+                                    const percentage = 100 / slidesToShow;
+                                    slide.style.flex = `0 0 ${percentage}%`;
+                                    slide.style.maxWidth = `${percentage}%`;
+                                });
+                            }
+                            
+                            // Update carousel position
+                            function updateCarousel() {
+                                const slideWidth = 100 / slidesToShow;
+                                const translateX = -currentSlide * slideWidth;
+                                track.style.transform = `translateX(${translateX}%)`;
+                                
+                                // Update dots
+                                dots.forEach((dot, index) => {
+                                    if (index === currentSlide) {
+                                        dot.classList.remove('bg-gray-300');
+                                        dot.classList.add('bg-blue-600');
+                                    } else {
+                                        dot.classList.remove('bg-blue-600');
+                                        dot.classList.add('bg-gray-300');
+                                    }
+                                });
+                                
+                                // Update button states
+                                prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
+                                nextBtn.style.opacity = currentSlide >= slides.length - slidesToShow ? '0.5' : '1';
+                            }
+                            
+                            // Next slide
+                            function nextSlide() {
+                                if (currentSlide < slides.length - slidesToShow) {
+                                    currentSlide++;
+                                    updateCarousel();
+                                }
+                            }
+                            
+                            // Previous slide
+                            function prevSlide() {
+                                if (currentSlide > 0) {
+                                    currentSlide--;
+                                    updateCarousel();
+                                }
+                            }
+                            
+                            // Go to specific slide
+                            function goToSlide(slideIndex) {
+                                if (slideIndex >= 0 && slideIndex <= slides.length - slidesToShow) {
+                                    currentSlide = slideIndex;
+                                    updateCarousel();
+                                }
+                            }
+                            
+                            // Event listeners
+                            nextBtn.addEventListener('click', nextSlide);
+                            prevBtn.addEventListener('click', prevSlide);
+                            
+                            dots.forEach((dot, index) => {
+                                dot.addEventListener('click', () => goToSlide(index));
+                            });
+                            
+
+                            
+                            // Touch/swipe support
+                            let startX = 0;
+                            let currentX = 0;
+                            let isDragging = false;
+                            
+                            track.addEventListener('touchstart', (e) => {
+                                startX = e.touches[0].clientX;
+                                isDragging = true;
+                            });
+                            
+                            track.addEventListener('touchmove', (e) => {
+                                if (!isDragging) return;
+                                currentX = e.touches[0].clientX;
+                            });
+                            
+                            track.addEventListener('touchend', () => {
+                                if (!isDragging) return;
+                                isDragging = false;
+                                
+                                const diffX = startX - currentX;
+                                if (Math.abs(diffX) > 50) {
+                                    if (diffX > 0) {
+                                        nextSlide();
+                                    } else {
+                                        prevSlide();
+                                    }
+                                }
+                            });
+                            
+
+                            
+                            // Resize handler
+                            window.addEventListener('resize', () => {
+                                updateSlidesToShow();
+                                if (currentSlide > slides.length - slidesToShow) {
+                                    currentSlide = Math.max(0, slides.length - slidesToShow);
+                                }
+                                updateCarousel();
+                            });
+                            
+                            // Initialize
+                            updateSlidesToShow();
+                            updateCarousel();
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <!-- Building Services -->
+            <div class="mb-4 sm:mb-4 md:mb-4">
+                <h3 class="seasons-font text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8 sm:mb-10 md:mb-12 px-4">Building Services</h3>
+                <!-- Carousel Container -->
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-4 sm:p-6 lg:p-8">
+                        <!-- Carousel Wrapper -->
+                        <div class="carousel-wrapper relative">
+                            <!-- Carousel Track -->
+                            <div id="building-carousel-track" class="flex transition-transform duration-500 ease-in-out">
+                                <!-- General Building -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-blue-600 overflow-hidden h-full">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-blue-700 transition-colors duration-300">General Building</h4>
+                            </div>
+                            <ul class="text-sm sm:text-base text-gray-600 space-y-2">
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Developments</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Industrial, Commercial and Residential Buildings</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Low and middle income housing developments</li>
+                            </ul>
+                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-indigo-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Plumbing & Drainage -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-cyan-600 overflow-hidden h-full">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-cyan-700 transition-colors duration-300">Plumbing & Drainage</h4>
+                            </div>
+                            <ul class="text-sm sm:text-base text-gray-600 space-y-2">
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-cyan-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Drainage - sewers, manholes etc</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-cyan-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Plumbing - bathrooms, toilets, gutters, geysers, irrigation</li>
+                            </ul>
+                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-600 to-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Roofing & Structure -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-orange-600 overflow-hidden h-full">
+                        <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-orange-600 to-red-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21l8-8-8-8"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-orange-700 transition-colors duration-300">Roofing & Structure</h4>
+                            </div>
+                            <ul class="text-sm sm:text-base text-gray-600 space-y-2">
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Roofing - Trusses, Tiles, IBR, Corrugated, etc</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Foundations - Trenching, roofing and slabs</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Steel Fixing</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Concrete work</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Formwork</li>
+                            </ul>
+                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-600 to-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Finishing Works -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-purple-600 overflow-hidden h-full">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-purple-700 transition-colors duration-300">Finishing Works</h4>
+                            </div>
+                            <ul class="text-sm sm:text-base text-gray-600 space-y-2">
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Plastering - Rhinolite, Plaster sand</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Painting - Oil & water based, inc spray application</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Ceiling - Suspended and conventional</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Tiling - Wooden flooring, Ceramic and Vinyl</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Wall Coating - Gamazene, Wall paper</li>
+                            </ul>
+                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Specialized Services -->
+                                <div class="carousel-slide flex-shrink-0 w-full px-2 sm:px-3">
+                                    <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 border-l-4 border-green-600 overflow-hidden h-full">
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-50/50 to-teal-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative p-4 sm:p-6 md:p-8 z-10">
+                            <div class="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                <div class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-gradient-to-r from-green-600 to-teal-600 rounded-lg flex items-center justify-center mr-3 sm:mr-4 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="seasons-font text-lg sm:text-xl font-bold text-gray-800 group-hover:text-green-700 transition-colors duration-300">Specialized Services</h4>
+                            </div>
+                            <ul class="text-sm sm:text-base text-gray-600 space-y-2">
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Glazing - All types</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Carpentry - All types of wooden work eg Doors, Door frames and window frames</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Earth works</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Renovations</li>
+                                <li class="flex items-start group-hover:text-gray-700 transition-colors duration-300"><span class="w-2 h-2 bg-green-600 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:scale-125 transition-transform duration-300"></span>Civil works – roads, bridges</li>
+                            </ul>
+                        </div>
+                                        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-green-600 to-teal-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button id="building-prev-btn" class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-10 group">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button id="building-next-btn" class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-gray-800 rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-10 group">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Dot Indicators -->
+                        <div class="flex justify-center mt-6 sm:mt-8 space-x-2">
+                            <button class="building-carousel-dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors duration-300" data-slide="0"></button>
+                            <button class="building-carousel-dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors duration-300" data-slide="1"></button>
+                            <button class="building-carousel-dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors duration-300" data-slide="2"></button>
+                            <button class="building-carousel-dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors duration-300" data-slide="3"></button>
+                            <button class="building-carousel-dot w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gray-400 hover:bg-gray-600 transition-colors duration-300" data-slide="4"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Building Services Carousel JavaScript -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const buildingTrack = document.getElementById('building-carousel-track');
+                    const buildingSlides = buildingTrack.querySelectorAll('.carousel-slide');
+                    const buildingPrevBtn = document.getElementById('building-prev-btn');
+                    const buildingNextBtn = document.getElementById('building-next-btn');
+                    const buildingDots = document.querySelectorAll('.building-carousel-dot');
+                    
+                    let buildingCurrentSlide = 0;
+                    let buildingSlidesToShow = 1;
+                    
+                    // Determine slides to show based on screen size
+                    function updateBuildingSlidesToShow() {
+                        if (window.innerWidth >= 1024) {
+                            buildingSlidesToShow = 3;
+                        } else if (window.innerWidth >= 640) {
+                            buildingSlidesToShow = 2;
+                        } else {
+                            buildingSlidesToShow = 1;
+                        }
+                        
+                        // Update slide widths dynamically
+                        buildingSlides.forEach(slide => {
+                            const percentage = 100 / buildingSlidesToShow;
+                            slide.style.flex = `0 0 ${percentage}%`;
+                            slide.style.maxWidth = `${percentage}%`;
+                        });
+                    }
+                    
+                    // Update carousel position
+                    function updateBuildingCarousel() {
+                        const slideWidth = 100 / buildingSlidesToShow;
+                        const translateX = -buildingCurrentSlide * slideWidth;
+                        buildingTrack.style.transform = `translateX(${translateX}%)`;
+                        
+                        // Update dots
+                        buildingDots.forEach((dot, index) => {
+                            if (index === buildingCurrentSlide) {
+                                dot.classList.remove('bg-gray-400');
+                                dot.classList.add('bg-blue-600');
+                            } else {
+                                dot.classList.remove('bg-blue-600');
+                                dot.classList.add('bg-gray-400');
+                            }
+                        });
+                        
+                        // Update button states
+                        buildingPrevBtn.style.opacity = buildingCurrentSlide === 0 ? '0.5' : '1';
+                        buildingNextBtn.style.opacity = buildingCurrentSlide >= buildingSlides.length - buildingSlidesToShow ? '0.5' : '1';
+                    }
+                    
+                    // Next slide
+                    function buildingNextSlide() {
+                        if (buildingCurrentSlide < buildingSlides.length - buildingSlidesToShow) {
+                            buildingCurrentSlide++;
+                            updateBuildingCarousel();
+                        }
+                    }
+                    
+                    // Previous slide
+                    function buildingPrevSlide() {
+                        if (buildingCurrentSlide > 0) {
+                            buildingCurrentSlide--;
+                            updateBuildingCarousel();
+                        }
+                    }
+                    
+                    // Go to specific slide
+                    function buildingGoToSlide(slideIndex) {
+                        if (slideIndex >= 0 && slideIndex <= buildingSlides.length - buildingSlidesToShow) {
+                            buildingCurrentSlide = slideIndex;
+                            updateBuildingCarousel();
+                        }
+                    }
+                    
+                    // Event listeners
+                    buildingNextBtn.addEventListener('click', buildingNextSlide);
+                    buildingPrevBtn.addEventListener('click', buildingPrevSlide);
+                    
+                    buildingDots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => buildingGoToSlide(index));
+                    });
+                    
+                    // Touch/swipe support
+                    let buildingStartX = 0;
+                    let buildingCurrentX = 0;
+                    let buildingIsDragging = false;
+                    
+                    buildingTrack.addEventListener('touchstart', (e) => {
+                        buildingStartX = e.touches[0].clientX;
+                        buildingIsDragging = true;
+                    });
+                    
+                    buildingTrack.addEventListener('touchmove', (e) => {
+                        if (!buildingIsDragging) return;
+                        buildingCurrentX = e.touches[0].clientX;
+                    });
+                    
+                    buildingTrack.addEventListener('touchend', () => {
+                        if (!buildingIsDragging) return;
+                        buildingIsDragging = false;
+                        
+                        const diffX = buildingStartX - buildingCurrentX;
+                        if (Math.abs(diffX) > 50) {
+                            if (diffX > 0) {
+                                buildingNextSlide();
+                            } else {
+                                buildingPrevSlide();
+                            }
+                        }
+                    });
+                    
+                    // Resize handler
+                    window.addEventListener('resize', () => {
+                        updateBuildingSlidesToShow();
+                        if (buildingCurrentSlide > buildingSlides.length - buildingSlidesToShow) {
+                            buildingCurrentSlide = Math.max(0, buildingSlides.length - buildingSlidesToShow);
+                        }
+                        updateBuildingCarousel();
+                    });
+                    
+                    // Initialize
+                    updateBuildingSlidesToShow();
+                    updateBuildingCarousel();
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- Benefits for Clients Section -->
+    <section id="benefits" class="benefits-section py-12 sm:py-12 md:py-12 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 md:mb-16" style="font-family: The Seasons;" >Benefits for Clients</h2>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="relative bg-gradient-to-br from-white/20 via-white/10 to-white/5 p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl backdrop-blur-lg border border-white/20 shadow-2xl animate-fade-in overflow-hidden">
+                    <!-- Decorative Background Elements -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-400/20 to-indigo-500/20 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative z-10 text-left space-y-8">
+                        <!-- Introduction Section -->
+                        <div class="bg-gradient-to-r from-white/10 to-white/5 p-4 sm:p-6 rounded-lg sm:rounded-xl border-l-4 border-orange-400">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-lg flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-handshake text-white text-lg sm:text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
+                                        Strong relationships lie at the heart of <span class="font-bold text-orange-400">MCDON CIVIL ENGINEERING LTD</span>, interactions with its clients. Mcdon builds and maintains those relationships by being versatile when it comes to budgeting, scheduling, and planning, while being responsive and communicative throughout the life cycle of a project.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-white/10 to-white/5 p-4 sm:p-6 rounded-lg sm:rounded-xl border-l-4 border-blue-400">
+                            <div class="flex items-start space-x-3 sm:space-x-4">
+                                <div class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center shadow-lg">
+                                    <i class="fas fa-project-diagram text-white text-lg sm:text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
+                                        Mcdon participation in the project begins immediately upon project award, and continues through the three phases of the project: <span class="font-semibold text-blue-300">preconstruction</span>, <span class="font-semibold text-blue-300">construction</span>, and the <span class="font-semibold text-blue-300">postconstruction and warranty period</span>. Extensive preconstruction services include budgeting, preparing and maintaining a master schedule, evaluating trade contractors, and developing a project execution plan that will drive the onsite activities during construction phase.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Expand/Collapse Button -->
+                        <div class="flex justify-center mt-4 sm:mt-6">
+                            <button id="expandBenefitsBtn" class="group flex items-center space-x-2 bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                                <span class="font-semibold text-sm sm:text-base">Learn More About Our Benefits</span>
+                                <i id="expandIcon" class="fas fa-chevron-down transition-transform duration-300 group-hover:translate-y-1 text-sm sm:text-base"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Inline script for immediate button functionality -->
+                        <script>
+                            // Direct button click handler
+                            document.getElementById('expandBenefitsBtn').addEventListener('click', function() {
+                                var content = document.getElementById('expandableContent');
+                                var icon = document.getElementById('expandIcon');
+                                
+                                if (content.classList.contains('hidden')) {
+                                    // Show content
+                                    content.classList.remove('hidden');
+                                    icon.classList.remove('fa-chevron-down');
+                                    icon.classList.add('fa-chevron-up');
+                                    this.querySelector('span').textContent = 'Show Less';
+                                } else {
+                                    // Hide content
+                                    content.classList.add('hidden');
+                                    icon.classList.add('fa-chevron-down');
+                                    icon.classList.remove('fa-chevron-up');
+                                    this.querySelector('span').textContent = 'Learn More About Our Benefits';
+                                }
+                            });
+                        </script>
+                        
+                        <!-- Expandable Content -->
+                        <div id="expandableContent" class="hidden mt-6 sm:mt-8 space-y-6 sm:space-y-8 transition-all duration-500">
+                        <!-- Communication Section -->
+                        <div class="relative">
+                            <div class="flex flex-col sm:flex-row items-center sm:items-center mb-4 sm:mb-6 text-center sm:text-left">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center shadow-xl mb-3 sm:mb-0 sm:mr-4">
+                                    <i class="fas fa-comments text-white text-lg sm:text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col items-center sm:items-start">
+                                    <h3 class="seasons-font text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Communication and Responsiveness</h3>
+                                    <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-orange-400 to-red-500 rounded-full mt-2 mx-auto sm:mx-0"></div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-white/15 to-white/5 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-white/20">
+                                <p class="text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
+                                    Communication is key on every project. During construction, Mcdon will do everything from controlling costs to executing an effective safety plan, and will provide timely and accurate project status reports. Mcdon'S responsibility for excellent client service continues through the postconstruction period. The project team will be the leaders on all postconstruction items, especially any warranty items. This approach ensures that clients always know who to go to for assistance with any issue.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Strength Section -->
+                        <div class="relative">
+                            <div class="flex flex-col sm:flex-row items-center sm:items-center mb-4 sm:mb-6 text-center sm:text-left">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-green-400 to-teal-500 rounded-full flex items-center justify-center shadow-xl mb-3 sm:mb-0 sm:mr-4">
+                                    <i class="fas fa-shield-alt text-white text-lg sm:text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col items-center sm:items-start">
+                                    <h3 class="seasons-font text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">Strength and Knowledge</h3>
+                                    <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-green-400 to-teal-500 rounded-full mt-2 mx-auto sm:mx-0"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-3 sm:space-y-4">
+                                <div class="bg-gradient-to-r from-white/15 to-white/5 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-white/20">
+                                    <p class="text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
+                                        With a bonding capacity that has no established upper limit, <span class="font-bold text-green-300">Mcdon'S financial strength</span> gives you peace of mind. PCL has an unmatched supply of experienced labor, the ability to self-perform its work where necessary.
+                                    </p>
+                                </div>
+                                <div class="bg-gradient-to-r from-white/15 to-white/5 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-white/20">
+                                    <p class="text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
+                                        Mcdon'S project team will always be responsive and will remain <span class="font-semibold text-green-300">flexible and versatile</span> throughout the life cycle of the build.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Confidence Section -->
+                        <div class="relative">
+                            <div class="flex flex-col sm:flex-row items-center sm:items-center mb-4 sm:mb-6 text-center sm:text-left">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center shadow-xl mb-3 sm:mb-0 sm:mr-4">
+                                    <i class="fas fa-star text-white text-lg sm:text-2xl"></i>
+                                </div>
+                                <div class="flex flex-col items-center sm:items-start">
+                                    <h3 class="seasons-font text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Confidence</h3>
+                                    <div class="w-16 sm:w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mt-2 mx-auto sm:mx-0"></div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-white/15 to-white/5 p-4 sm:p-6 rounded-lg sm:rounded-xl border border-white/20">
+                                <p class="text-sm sm:text-base md:text-lg leading-relaxed text-white/90">
+                                    We believe that building relationships through honest communication and providing outstanding service is as important as the construction is enacted with <span class="font-bold text-purple-300">purpose, quality and durability</span>. We create in order to serve people and construct to enhance life, while maintaining long-term relationships with our customers, subcontractors and employees. And when your project is complete, we will be standing next to you, helping you plan for your future. Our reputation in the industry is based upon the <span class="font-semibold text-purple-300">dedication, excellence and professionalism</span> of our highly skilled team.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom Accent -->
+                        <div class="flex justify-center pt-4 sm:pt-6">
+                            <div class="w-24 sm:w-32 h-1 bg-gradient-to-r from-orange-400 via-red-500 to-purple-500 rounded-full"></div>
+                        </div>
+                        </div> <!-- End of expandable content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm sm:text-base">© 2025 MCDON CIVIL ENGINEERING LTD. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenu = document.getElementById('close-mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+        
+        // Construction Process Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        const carouselTrack = document.getElementById('carousel-track');
+        const slideIndicators = document.querySelectorAll('.slide-indicator');
+        
+        function updateCarousel() {
+            const translateX = -currentSlide * 100;
+            carouselTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            slideIndicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.remove('bg-gray-300');
+                    indicator.classList.add('bg-blue-500');
+                } else {
+                    indicator.classList.remove('bg-blue-500');
+                    indicator.classList.add('bg-gray-300');
+                }
+            });
+        }
+        
+        // Safely add event listeners only if elements exist
+        const prevSlideBtn = document.getElementById('prev-slide');
+        const nextSlideBtn = document.getElementById('next-slide');
+        
+        if (prevSlideBtn) {
+            prevSlideBtn.addEventListener('click', () => {
+                currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+                updateCarousel();
+            });
+        }
+        
+        if (nextSlideBtn) {
+            nextSlideBtn.addEventListener('click', () => {
+                currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+                updateCarousel();
+            });
+        }
+        
+        // Slide indicator clicks
+        slideIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-advance carousel
+        setInterval(() => {
+            currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+            updateCarousel();
+        }, 8000);
+        
+        // Building Services Carousel
+        let currentBuildingSlide = 0;
+        const buildingSlides = document.querySelectorAll('.building-carousel-slide');
+        const totalBuildingSlides = buildingSlides.length;
+        const buildingCarouselTrack = document.getElementById('building-carousel-track');
+        const buildingSlideIndicators = document.querySelectorAll('.building-slide-indicator');
+        
+        function updateBuildingCarousel() {
+            const translateX = -currentBuildingSlide * 100;
+            buildingCarouselTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            buildingSlideIndicators.forEach((indicator, index) => {
+                if (index === currentBuildingSlide) {
+                    indicator.classList.remove('bg-white/50');
+                    indicator.classList.add('bg-white');
+                } else {
+                    indicator.classList.remove('bg-white');
+                    indicator.classList.add('bg-white/50');
+                }
+            });
+        }
+        
+        // Safely add event listeners only if elements exist
+        const prevBuildingSlideBtn = document.getElementById('prev-building-slide');
+        const nextBuildingSlideBtn = document.getElementById('next-building-slide');
+        
+        if (prevBuildingSlideBtn) {
+            prevBuildingSlideBtn.addEventListener('click', () => {
+                currentBuildingSlide = currentBuildingSlide > 0 ? currentBuildingSlide - 1 : totalBuildingSlides - 1;
+                updateBuildingCarousel();
+            });
+        }
+        
+        if (nextBuildingSlideBtn) {
+            nextBuildingSlideBtn.addEventListener('click', () => {
+                currentBuildingSlide = currentBuildingSlide < totalBuildingSlides - 1 ? currentBuildingSlide + 1 : 0;
+                updateBuildingCarousel();
+            });
+        }
+        
+        // Building slide indicator clicks
+        buildingSlideIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentBuildingSlide = index;
+                updateBuildingCarousel();
+            });
+        });
+        
+        // Auto-advance building carousel
+        setInterval(() => {
+            currentBuildingSlide = currentBuildingSlide < totalBuildingSlides - 1 ? currentBuildingSlide + 1 : 0;
+            updateBuildingCarousel();
+        }, 10000);
+        
+        // Building Types Carousel Navigation (existing)
+        const buildingContainer = document.getElementById('building-container');
+        const prevButton = document.getElementById('prev-building');
+        const nextButton = document.getElementById('next-building');
+        
+        if (buildingContainer && prevButton && nextButton) {
+            prevButton.addEventListener('click', () => {
+                buildingContainer.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+            
+            nextButton.addEventListener('click', () => {
+                buildingContainer.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+        }
+        
+        // Benefits Toggle Function
+        function toggleBenefit(benefitId) {
+            const content = document.getElementById(benefitId + '-content');
+            const icon = document.getElementById(benefitId + '-icon');
+            
+            if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.maxHeight = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Initialize all benefit contents to be hidden
+        document.addEventListener('DOMContentLoaded', function() {
+            const benefitContents = document.querySelectorAll('[id$="-content"]');
+            benefitContents.forEach(content => {
+                content.style.maxHeight = '0px';
+            });
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-slide-up, .animate-fade-in, .service-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Initial check
+        animateOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Benefits section functionality is now handled by inline script
+        
+    </script>
+</body>
+</html>

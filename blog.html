@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - MCDON CIVIL ENGINEERING LTD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap');
+        }
+        
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .seasons-font {
+            font-family: 'The Seasons', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-black to-blue-900 text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="Images/logo.png" alt="MCDON Civil Engineering" class="h-10 w-10 rounded-full object-cover">
+                    <span class="seasons-font text-2xl font-bold text-white">MCE</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-orange-400 font-semibold">Home</a>
+                <a href="about.html" class="nav-link text-white hover:text-orange-400 transition">About</a>
+                <a href="services.html" class="nav-link text-white hover:text-orange-400 transition">Services</a>
+                <a href="team.html" class="nav-link text-white hover:text-orange-400 transition">Team</a>
+                <a href="projects.html" class="nav-link text-white hover:text-orange-400 transition">Projects</a>
+                <a href="blog.html" class="nav-link text-orange-400 transition">Blog</a>
+                <a href="contact.html" class="nav-link text-white hover:text-orange-400 transition">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 bottom-0 w-1/2 bg-black bg-opacity-90 z-50 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="#" class="seasons-font text-2xl font-bold text-black">MCE</a>
+                    <button id="close-mobile-menu" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 text-xl font-semibold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                    <a href="services.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Services</span>
+                    </a>
+                    <a href="team.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                        <span>Team</span>
+                    </a>
+                    <a href="projects.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 000 2h.5l.5 2H3a1 1 0 000 2h1.5l.5 2H4a1 1 0 000 2h2.5l.5 2H6a1 1 0 000 2h3a1 1 0 000-2H8.5l-.5-2H9a1 1 0 000-2H7.5l-.5-2H8a1 1 0 000-2H6.5l-.5-2H7a1 1 0 000-2H3zm10 0a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Projects</span>
+                    </a>
+                    <a href="blog.html" class="flex items-center space-x-3 text-orange-400 text-xl transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Blog</span>
+                    </a>
+                    <a href="contact.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Blog Section -->
+    <section id="blog" class="py-16">
+        <div class="container mx-auto px-4 pt-12">
+            <!-- Section Header -->
+            <div class="text-center mb-2 relative">
+                <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 text-gray-100 text-8xl font-bold opacity-20 seasons-font hidden md:block">BLOG</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-4  relative inline-block" style="font-family: The Seasons;">
+                    Latest Articles
+                    <span class="absolute -bottom-2 left-0 w-full h-1 bg-orange-500 transform scale-x-50 transition-transform duration-300 group-hover:scale-x-100"></span>
+                </h2>
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="w-12 h-0.5 bg-gray-300"></div>
+                    <div class="w-3 h-3 rounded-full bg-orange-500 animate-pulse"></div>
+                    <div class="w-12 h-0.5 bg-gray-300"></div>
+                </div>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">Explore our collection of articles covering industry trends, project insights, and expert advice.</p>
+            </div>
+
+            <!-- Blog Categories -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="category-btn bg-blue-900 text-white px-6 py-2.5 rounded-md hover:bg-blue-800 transition-all duration-300 transform hover:scale-105 shadow-md flex items-center space-x-2" onclick="filterBlogs('all')">
+                    <i class="fas fa-th-large"></i><span>All</span>
+                </button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2.5 rounded-md hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md border border-gray-200 flex items-center space-x-2" onclick="filterBlogs('industry')">
+                    <i class="fas fa-industry"></i><span>Industry News</span>
+                </button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2.5 rounded-md hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md border border-gray-200 flex items-center space-x-2" onclick="filterBlogs('projects')">
+                    <i class="fas fa-project-diagram"></i><span>Project Highlights</span>
+                </button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2.5 rounded-md hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md border border-gray-200 flex items-center space-x-2" onclick="filterBlogs('technology')">
+                    <i class="fas fa-microchip"></i><span>Technology</span>
+                </button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2.5 rounded-md hover:bg-orange-500 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-md border border-gray-200 flex items-center space-x-2" onclick="filterBlogs('safety')">
+                    <i class="fas fa-hard-hat"></i><span>Safety</span>
+                </button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-lg blog-item group" data-category="industry">
+                    <div class="relative overflow-hidden">
+                        <img src="Images/pro1-1.png" alt="Blog Image" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60"></div>
+                        <span class="blog-category absolute top-4 left-4 bg-blue-900 text-white text-sm px-4 py-1.5 rounded-md shadow-md flex items-center space-x-2">
+                            <i class="fas fa-industry mr-1.5"></i>
+                            <span>Industry News</span>
+                        </span>
+                    </div>
+                    <div class="p-6 border-t-4 border-orange-500">
+                        <div class="flex items-center text-gray-500 text-sm mb-3 pb-3 border-b border-gray-100">
+                            <i class="far fa-calendar-alt mr-2 text-orange-500"></i>
+                            <span>September 15, 2025</span>
+                            <span class="mx-2">|</span>
+                            <i class="far fa-user mr-2 text-orange-500"></i>
+                            <span>John Smith</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-3 group-hover:text-orange-500 transition-colors duration-300">The Future of Sustainable Construction</h3>
+                        <p class="text-gray-600 mb-4">Exploring innovative approaches to sustainable construction practices and their impact on the environment and project outcomes.</p>
+                        <a href="projects.html" class="inline-block text-orange-500 font-medium hover:text-orange-600 transition-colors duration-300 group-hover:font-bold">
+                            Read More <i class="fas fa-arrow-right ml-1 group-hover:ml-2 transition-all duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-lg blog-item group" data-category="projects">
+                    <div class="relative overflow-hidden">
+                        <img src="Images/pro2.png" alt="Blog Image" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60"></div>
+                        <span class="blog-category absolute top-4 left-4 bg-orange-500 text-white text-sm px-4 py-1.5 rounded-md shadow-md flex items-center space-x-2">
+                            <i class="fas fa-project-diagram mr-1.5"></i>
+                            <span>Project Highlights</span>
+                        </span>
+                    </div>
+                    <div class="p-6 border-t-4 border-orange-500">
+                        <div class="flex items-center text-gray-500 text-sm mb-3 pb-3 border-b border-gray-100">
+                            <i class="far fa-calendar-alt mr-2 text-orange-500"></i>
+                            <span>May 28, 2025</span>
+                            <span class="mx-2">|</span>
+                            <i class="far fa-user mr-2 text-orange-500"></i>
+                            <span>Sarah Johnson</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-3 group-hover:text-orange-500 transition-colors duration-300">Completing the Downtown Bridge Project</h3>
+                        <p class="text-gray-600 mb-4">A detailed look at how our team overcame challenges to successfully complete the downtown bridge project ahead of schedule.</p>
+                        <a href="projects.html" class="inline-block text-orange-500 font-medium hover:text-orange-600 transition-colors duration-300 group-hover:font-bold">
+                            Read More <i class="fas fa-arrow-right ml-1 group-hover:ml-2 transition-all duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="blog-card bg-white rounded-lg overflow-hidden shadow-lg blog-item group" data-category="technology">
+                    <div class="relative overflow-hidden">
+                        <img src="Images/pro3.png" alt="Blog Image" class="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-60"></div>
+                        <span class="blog-category absolute top-4 left-4 bg-blue-600 text-white text-sm px-4 py-1.5 rounded-md shadow-md flex items-center space-x-2">
+                            <i class="fas fa-microchip mr-1.5"></i>
+                            <span>Technology</span>
+                        </span>
+                    </div>
+                    <div class="p-6 border-t-4 border-orange-500">
+                        <div class="flex items-center text-gray-500 text-sm mb-3 pb-3 border-b border-gray-100">
+                            <i class="far fa-calendar-alt mr-2 text-orange-500"></i>
+                            <span>April 10, 2025</span>
+                            <span class="mx-2">|</span>
+                            <i class="far fa-user mr-2 text-orange-500"></i>
+                            <span>Michael Chen</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-3 group-hover:text-orange-500 transition-colors duration-300">How BIM is Revolutionizing Construction</h3>
+                        <p class="text-gray-600 mb-4">An in-depth analysis of how Building Information Modeling (BIM) is transforming project planning, execution, and management.</p>
+                        <a href="projects.html" class="inline-block text-orange-500 font-medium hover:text-orange-600 transition-colors duration-300 group-hover:font-bold">
+                            Read More <i class="fas fa-arrow-right ml-1 group-hover:ml-2 transition-all duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm sm:text-base">© 2025 MCDON CIVIL ENGINEERING LTD. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+        
+        // Close Mobile Menu
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Blog Filtering
+        function filterBlogs(category) {
+            const blogItems = document.querySelectorAll('.blog-item');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            // Update active button
+            categoryBtns.forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(category) || 
+                   (category === 'all' && btn.textContent.toLowerCase().includes('all'))) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-800');
+                    btn.classList.add('bg-blue-900', 'text-white');
+                } else {
+                    btn.classList.remove('bg-blue-900', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-800');
+                }
+            });
+            
+            // Filter blog items
+            blogItems.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.blog-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

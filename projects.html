@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - MCDON CIVIL ENGINEERING LTD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'The Seasons';
+            src: url('https://fonts.googleapis.com/css2?family=Seasons:wght@400;700&display=swap');
+        }
+        
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .seasons-font {
+            font-family: 'The Seasons', sans-serif;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .animate-slide-up {
+            animation: slideUp 1s ease-in-out;
+        }
+        
+        .animate-slide-left {
+            animation: slideLeft 1s ease-in-out;
+        }
+        
+        .animate-slide-right {
+            animation: slideRight 1s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0) !important;
+        }
+        
+        .project-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .project-item:hover {
+            transform: scale(1.02);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .filter-button.active {
+            background-color: #1e40af;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-black to-blue-900 text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="Images/logo.png" alt="MCDON Civil Engineering" class="h-10 w-10 rounded-full object-cover">
+                    <span class="seasons-font text-2xl font-bold text-white">MCE</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-orange-400 transition">Home</a>
+                <a href="about.html" class="nav-link text-white hover:text-orange-400 transition">About</a>
+                <a href="services.html" class="nav-link text-white hover:text-orange-400 transition">Services</a>
+                <a href="team.html" class="nav-link text-white hover:text-orange-400 font-semibold">Team</a>
+                <a href="projects.html" class="nav-link text-orange-400 transition">Projects</a>
+                <a href="blog.html" class="nav-link text-white hover:text-orange-400 transition">Blog</a>
+                <a href="contact.html" class="nav-link text-white hover:text-orange-400 transition">Contact</a>
+            </div>
+            
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-0 right-0 bottom-0 w-1/2 bg-black bg-opacity-90 z-50 overflow-y-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <a href="#" class="seasons-font text-2xl font-bold text-white">MCE</a>
+                    <button id="close-mobile-menu" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex flex-col space-y-6">
+                    <a href="index.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="about.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>About</span>
+                    </a>
+                    <a href="services.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Services</span>
+                    </a>
+                    <a href="team.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 text-xl font-semibold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                        </svg>
+                        <span>Team</span>
+                    </a>
+                    <a href="projects.html" class="flex items-center space-x-3 text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 000 2h.5l.5 2H3a1 1 0 000 2h1.5l.5 2H4a1 1 0 000 2h2.5l.5 2H6a1 1 0 000 2h3a1 1 0 000-2H8.5l-.5-2H9a1 1 0 000-2H7.5l-.5-2H8a1 1 0 000-2H6.5l-.5-2H7a1 1 0 000-2H3zm10 0a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4zm0 4a1 1 0 000 2h4a1 1 0 000-2h-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Projects</span>
+                    </a>
+                     <a href="blog.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Blog</span>
+                    </a>
+                    <a href="contact.html" class="flex items-center space-x-3 text-white text-xl hover:text-orange-400 transition-all duration-300 transform hover:translate-x-2 hover:scale-105">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-12 bg-gradient-to-br from-gray-100 via-blue-50 to-orange-50">
+        <div class="container mx-auto px-4 pt-12">
+            <h2 class="seasons-font text-4xl md:text-5xl  font-bold text-center text-gray-800 mb-16" style="font-family: The Seasons;" >Our Construction Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="project-item relative rounded-lg overflow-hidden shadow-md cursor-pointer" onclick="openModal('Renovation of Office Spaces in Nakasero', 'A comprehensive renovation project for modern office spaces in the heart of Nakasero business district.', 'Nakasero, Kampala', 'Images/pro1-1.png', 'Completed', 'Full Renovation & Interior Design')">
+                    <img src="Images/pro1-1.png" alt="RENOVATION OF OF OFFICE SPACES IN NAKASERO " class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="seasons-font text-xl font-bold text-gray-800">Renovation of Office Spaces in Nakasero</h3>
+                        <p class="text-gray-600">Client: King Ceasor Mulenga
+    </p>
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="seasons-font text-xl font-bold text-white mb-2">Renovation of Office Spaces in Nakasero</h3>
+                        <p class="text-white">Click to view details</p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-item relative rounded-lg overflow-hidden shadow-md cursor-pointer" onclick="openModal('Construction of Two Classroom Block', 'A modern two-classroom educational facility designed to enhance learning environments with contemporary amenities and infrastructure.', 'Kitaasa', 'Images/pro2.png', 'Completed', 'Complete Construction Management')">
+                    <img src="Images/pro2.png" alt=": Construction of Two Classroom block at ST. Maurice Primary School in Kitaasa. " class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="seasons-font text-xl font-bold text-gray-800">Construction of Two Classroom Block</h3>
+                        <p class="text-gray-600">ST. Maurice Primary School in Kitaasa <br> School Administration</p>
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="seasons-font text-xl font-bold text-white mb-2">Construction of Two Classroom Block</h3>
+                        <p class="text-white">Click to view details</p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-item relative rounded-lg overflow-hidden shadow-md cursor-pointer" onclick="openModal('Renovation of a Residential House in Palm Estate - Munyonyo Roundabout', 'A comprehensive residential renovation project featuring modern design upgrades and enhanced living spaces in the prestigious Palm Estate area.', 'Palm Estate, Munyonyo', 'Images/pro3-3.png', 'Completed', 'Residential Renovation & Upgrades')">
+                    <img src="Images/pro3.png" alt="Renovation of a Residential House in Palm Estate" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="seasons-font text-xl font-bold text-gray-800">Renovation of a Residential House in Palm Estate</h3>
+                        <p class="text-gray-600">Counsel Kamoga and Maria </p>
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="seasons-font text-xl font-bold text-white mb-2">Renovation of a Residential House</h3>
+                        <p class="text-white">Click to view details</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center opacity-0 pointer-events-none transition">
+        <div class="modal-content bg-white rounded-lg max-w-4xl w-full mx-4 overflow-hidden relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2">
+                    <img id="modal-image" src="" alt="Project Image" class="w-full h-full object-cover">
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <h3 id="modal-title" class="seasons-font text-2xl font-bold text-gray-800 mb-4"></h3>
+                    <p id="modal-description" class="text-gray-600 mb-6"></p>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-map-marker-alt text-orange-500 mr-2"></i>
+                        <span id="modal-location" class="text-gray-700"></span>
+                    </div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-check-circle text-orange-500 mr-2"></i>
+                        <span id="modal-status" class="text-gray-700">Status: Completed</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-users text-orange-500 mr-2"></i>
+                        <span id="modal-involvement" class="text-gray-700">Involvement: Full Construction Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6 sm:py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-gray-400 text-sm sm:text-base">© 2025 MCDON CIVIL ENGINEERING LTD. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Mobile Menu Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-mobile-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.add('open');
+            });
+            
+            closeMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+
+    <!-- Project Modal Script -->
+    <script>
+        function openModal(title, description, location, image, status, involvement) {
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const modalLocation = document.getElementById('modal-location');
+            const modalStatus = document.getElementById('modal-status');
+            const modalInvolvement = document.getElementById('modal-involvement');
+            const modalImage = document.getElementById('modal-image');
+            
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalLocation.textContent = location;
+            modalStatus.textContent = 'Status: ' + status;
+            modalInvolvement.textContent = 'Involvement: ' + involvement;
+            modalImage.src = image;
+            
+            modal.classList.add('active');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('active');
+        }
+    </script>
+
+    <!-- Project Filtering Script -->
+    <script>
+
+         // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('translate-x-full');
+        });
+        
+        // Close Mobile Menu
+        document.getElementById('close-mobile-menu').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.add('translate-x-full');
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const filterItems = document.querySelectorAll('.filter-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    filterItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                        } else if (item.classList.contains(filterValue)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-slide-left, .animate-slide-right');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translate(0, 0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                element.style.opacity = '0';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
